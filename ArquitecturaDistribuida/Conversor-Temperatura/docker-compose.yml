@@ -1,0 +1,19 @@
+version: '3'
+services:
+  interfaz:
+    image: tu_usuario/interfaz:latest
+    ports:
+      - "5000:5000"
+    depends_on:
+      - fahrenheit
+      - kelvin
+
+  fahrenheit:
+    image: tu_usuario/fahrenheit:latest
+    ports:
+      - "5001:5001"
+
+  kelvin:
+    image: tu_usuario/kelvin:latest
+    ports:
+      - "5002:5002"
