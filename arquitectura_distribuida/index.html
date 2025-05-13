@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contador de Visitas</title>
+</head>
+<body>
+  <h1>Contador de Visitas</h1>
+  <p>Visitas: <span id="visitas">Cargando...</span></p>
+
+  <script>
+    fetch('/api/contador')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('visitas').innerText = data.visitas;
+      })
+      .catch(error => {
+        console.error('Error al obtener visitas:', error);
+      });
+  </script>
+</body>
+</html>
